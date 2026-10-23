@@ -1,0 +1,168 @@
+schema_version: "1.0"
+
+# Analytical design-space sweep configurations.
+# Compute and bandwidth values represent theoretical hardware limits.
+experiments:
+  llama_analytical:
+    description: >-
+      LLaMA-style ~7.5B decoder. Nominal H100/A100 ceilings, an explicitly
+      bandwidth-constrained H100 variant, MHA/GQA/MQA, batch/context/dtype axes.
+    model:
+      name: llama-style-7b
+      n_layers: 32
+      hidden_size: 4096
+      n_heads: 32
+      n_kv_heads: 8
+      intermediate_size: 14336
+      vocab_size: 128256
+      tie_embeddings: false
+      gated_mlp: true
+    runtime:
+      batch_size: [1, 8, 32]
+      seq_len: [512, 2048, 8192]
+      gen_len: 128
+      weight_dtype: [fp16, fp8]
+      kv_dtype: null
+      activation_dtype: fp16
+      causal: true
+      attention_impl: fused
+      activation_traffic_factor: 4.0
+      logits_last_token_only: true
+    attention_variants: [mha, gqa, mqa]
+    hardware:
+      - name: H100-SXM-80GB-nominal
+        peak_flops: 989.4e+12
+        memory_bandwidth: 3.35e+12
+        memory_capacity: 80000000000
+        source: "NVIDIA H100 SXM datasheet, dense FP16 tensor-core peak (nominal, not measured)"
+        notes: "FP8 weights are evaluated against the FP16 compute ceiling."
+      - name: H100-BW-constrained-nominal
+        peak_flops: 989.4e+12
+        memory_bandwidth: 1.50e+12
+        memory_capacity: 80000000000
+        source: "Hypothetical H100 configuration with reduced memory bandwidth"
+      - name: A100-SXM-80GB-nominal
+        peak_flops: 312.0e+12
+        memory_bandwidth: 2.039e+12
+        memory_capacity: 80000000000
+        source: "NVIDIA A100 SXM datasheet, dense FP16 tensor-core peak (nominal, not measured)"
+
+  tiny_cpu_calibrated:
+    description: >-
+      Tiny 4x128 decoder swept against the measured CPU effective profile.
+      Analytical predictions only; profiling of selected points is done by the
+      agent, not by the sweep.
+    model:
+      name: tiny-4x128
+      n_layers: 4
+      hidden_size: 128
+      n_heads: 4
+      n_kv_heads: 2
+      intermediate_size: 512
+      vocab_size: 1024
+      tie_embeddings: true
+      gated_mlp: true
+    runtime:
+      batch_size: [1, 8, 32]
+      seq_len: [64, 128, 256]
+      gen_len: 8
+      weight_dtype: fp32
+      kv_dtype: fp32
+      activation_dtype: fp32
+      causal: true
+      attention_impl: fused
+      activation_traffic_factor: 4.0
+      logits_last_token_only: true
+    attention_variants: [mha, gqa, mqa]
+    # Placeholder entry replaced by calibration data.
+    hardware:
+      - name: placeholder
+        peak_flops: 1.0e+12
+        memory_bandwidth: 1.0e+11
+        memory_capacity: 16000000000
+        source: "placeholder replaced by measured calibration"
+
+# CPU validation configurations. The backend requires float32 precision.
+validation:
+  seed: 0
+  repeats: 3
+  warmup: 1
+  workloads:
+    - name: tiny-4x128
+      model:
+        name: tiny-4x128
+        n_layers: 4
+        hidden_size: 128
+        n_heads: 4
+        n_kv_heads: 2
+        intermediate_size: 512
+        vocab_size: 1024
+        tie_embeddings: true
+        gated_mlp: true
+      runtime:
+        gen_len: 8
+        weight_dtype: fp32
+        kv_dtype: fp32
+        activation_dtype: fp32
+        causal: true
+        attention_impl: fused
+        activation_traffic_factor: 4.0
+        logits_last_token_only: true
+      runtime_grid:
+        batch_size: [1, 8]
+        seq_len: [64, 128, 256]
+    - name: small-8x256
+      model:
+        name: small-8x256
+        n_layers: 8
+        hidden_size: 256
+        n_heads: 8
+        n_kv_heads: 2
+        intermediate_size: 1024
+        vocab_size: 2048
+        tie_embeddings: true
+        gated_mlp: true
+      runtime:
+        gen_len: 8
+        weight_dtype: fp32
+        kv_dtype: fp32
+        activation_dtype: fp32
+        causal: true
+        attention_impl: fused
+        activation_traffic_factor: 4.0
+        logits_last_token_only: true
+      runtime_grid:
+        batch_size: [8]
+        seq_len: [128, 256]
+
+# Bounded agent configuration space for CPU execution.
+agent_search:
+  seed: 0
+  model:
+    name: agent-tiny-4x128
+    n_layers: 4
+    hidden_size: 128
+    n_heads: 4
+    n_kv_heads: 2
+    intermediate_size: 512
+    vocab_size: 1024
+    tie_embeddings: true
+    gated_mlp: true
+  runtime:
+    gen_len: 8
+    weight_dtype: fp32
+    kv_dtype: fp32
+    activation_dtype: fp32
+    causal: true
+    attention_impl: fused
+    activation_traffic_factor: 4.0
+    logits_last_token_only: true
+  runtime_grid:
+    batch_size: [1, 2, 4, 8]
+    seq_len: [64, 128, 256]
+  attention_variants: [mha, gqa, mqa]
+  budget:
+    max_rounds: 3
+    max_tool_calls: 12
+    max_profiles: 2
+  repeats: 2

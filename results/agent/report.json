@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "kind": "bottleneck_report",
+  "status": "complete",
+  "halt_reason": null,
+  "backend": {
+    "profile": "cpu-numpy-blas-float32",
+    "device": "CPU",
+    "gpu_used": false,
+    "nvidia_claims": "none"
+  },
+  "hardware_profile": {
+    "name": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+    "peak_flops": 1618808053595.9795,
+    "memory_bandwidth": 70688978105.73117,
+    "memory_capacity": 17179869184.0,
+    "compute_efficiency": 1.0,
+    "bandwidth_efficiency": 1.0,
+    "layer_overhead_s": 4.839575558435172e-05,
+    "source": "measured microbenchmarks on this host (NumPy/Accelerate BLAS); not a nominal GPU ceiling",
+    "notes": "Effective profile for the CPU reference backend only."
+  },
+  "budget": {
+    "max_rounds": 3,
+    "max_tool_calls": 12,
+    "max_profiles": 2,
+    "tool_calls_used": 12,
+    "profile_calls_used": 2,
+    "blocked_attempts": 0
+  },
+  "claims": [
+    {
+      "text": "Highest predicted decode throughput was 30323.9 tokens/s for agent-tiny-4x128/mqa/B=8/S=64/fp32 on Apple M1 Pro [cpu-numpy-blas-float32] calibrated.",
+      "evidence": [
+        "sim-0007"
+      ],
+      "kind": "analytical"
+    },
+    {
+      "text": "Decode was memory-bound with operational intensity 3.54 FLOP/byte versus a ridge point of 22.90 FLOP/byte; prefill was compute-bound at 102.76 FLOP/byte.",
+      "evidence": [
+        "sim-0007"
+      ],
+      "kind": "analytical"
+    },
+    {
+      "text": "Peak KV footprint for the best configuration was 576.00 KiB (0.0% of device memory).",
+      "evidence": [
+        "sim-0007"
+      ],
+      "kind": "analytical"
+    },
+    {
+      "text": "Best predicted prefill throughput was 763453.8 tokens/s (agent-tiny-4x128/mqa/B=8/S=256/fp32, compute-bound), a different operating point from the best decode config.",
+      "evidence": [
+        "sim-0008"
+      ],
+      "kind": "analytical"
+    },
+    {
+      "text": "Measured prefill throughput was 58388.1 tokens/s versus 639002.0 tokens/s predicted (+994.4% error) on cpu-numpy-blas-float32.",
+      "evidence": [
+        "sim-0007",
+        "meas-0011"
+      ],
+      "kind": "measured"
+    },
+    {
+      "text": "Measured decode throughput was 5516.7 tokens/s versus 30323.9 tokens/s predicted (+449.7% error) on cpu-numpy-blas-float32.",
+      "evidence": [
+        "sim-0007",
+        "meas-0011"
+      ],
+      "kind": "measured"
+    },
+    {
+      "text": "Measured prefill throughput was 40805.8 tokens/s versus 722151.8 tokens/s predicted (+1669.7% error) on cpu-numpy-blas-float32.",
+      "evidence": [
+        "sim-0006",
+        "meas-0012"
+      ],
+      "kind": "measured"
+    },
+    {
+      "text": "Measured decode throughput was 4616.6 tokens/s versus 29494.7 tokens/s predicted (+538.9% error) on cpu-numpy-blas-float32.",
+      "evidence": [
+        "sim-0006",
+        "meas-0012"
+      ],
+      "kind": "measured"
+    }
+  ],
+  "top_configs": [
+    {
+      "evidence_id": "sim-0007",
+      "config_id": "a2f691824c18",
+      "label": "agent-tiny-4x128/mqa/B=8/S=64/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 30323.89446150806,
+      "prefill_tokens_per_s": 639001.9725804843,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 589824,
+      "kv_pressure_peak": 3.4332275390625e-05
+    },
+    {
+      "evidence_id": "sim-0006",
+      "config_id": "00aaf66233f7",
+      "label": "agent-tiny-4x128/mqa/B=8/S=128/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 29494.698525124546,
+      "prefill_tokens_per_s": 722151.8177789167,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 1114112,
+      "kv_pressure_peak": 6.4849853515625e-05
+    },
+    {
+      "evidence_id": "sim-0008",
+      "config_id": "3d7210700019",
+      "label": "agent-tiny-4x128/mqa/B=8/S=256/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 27965.296661463533,
+      "prefill_tokens_per_s": 763453.8292073224,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 2162688,
+      "kv_pressure_peak": 0.000125885009765625
+    },
+    {
+      "evidence_id": "sim-0005",
+      "config_id": "e1ece5abb5fd",
+      "label": "agent-tiny-4x128/gqa/B=8/S=128/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 27723.828790982945,
+      "prefill_tokens_per_s": 701638.9319948971,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 2228224,
+      "kv_pressure_peak": 0.00012969970703125
+    },
+    {
+      "evidence_id": "sim-0004",
+      "config_id": "4ff8e58440c4",
+      "label": "agent-tiny-4x128/mha/B=8/S=128/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 24751.638548786017,
+      "prefill_tokens_per_s": 663921.264509539,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 4456448,
+      "kv_pressure_peak": 0.0002593994140625
+    },
+    {
+      "evidence_id": "sim-0003",
+      "config_id": "d362dfde1a30",
+      "label": "agent-tiny-4x128/mqa/B=1/S=128/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 3892.765079332569,
+      "prefill_tokens_per_s": 369266.4256740834,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 139264,
+      "kv_pressure_peak": 8.106231689453125e-06
+    },
+    {
+      "evidence_id": "sim-0010",
+      "config_id": "66660aea7e95",
+      "label": "agent-tiny-4x128/gqa/B=1/S=64/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 3863.6787628451602,
+      "prefill_tokens_per_s": 235179.71586041027,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 147456,
+      "kv_pressure_peak": 8.58306884765625e-06
+    },
+    {
+      "evidence_id": "sim-0002",
+      "config_id": "d001b048f8e9",
+      "label": "agent-tiny-4x128/gqa/B=1/S=128/fp32",
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "decode_tokens_per_s": 3836.196023152502,
+      "prefill_tokens_per_s": 363827.41615265975,
+      "decode_bound": "memory",
+      "prefill_bound": "compute",
+      "kv_bytes_peak": 278528,
+      "kv_pressure_peak": 1.621246337890625e-05
+    }
+  ],
+  "validation": [
+    {
+      "phase": "prefill",
+      "workload_id": "52c853fb4d8c",
+      "label": "agent-tiny-4x128/mqa/B=8/S=64/fp32",
+      "predicted_tokens_per_s": 639001.9725804843,
+      "measured_tokens_per_s": 58388.05735105618,
+      "error_pct": 994.4052629435965,
+      "predicted_ms": 0.801249482740074,
+      "measured_ms": 8.768916508415714,
+      "sim_evidence": "sim-0007",
+      "meas_evidence": "meas-0011",
+      "backend": "cpu-numpy-blas-float32"
+    },
+    {
+      "phase": "decode",
+      "workload_id": "52c853fb4d8c",
+      "label": "agent-tiny-4x128/mqa/B=8/S=64/fp32",
+      "predicted_tokens_per_s": 30323.89446150806,
+      "measured_tokens_per_s": 5516.716100946815,
+      "error_pct": 449.6729196614573,
+      "predicted_ms": 2.1105468521280812,
+      "measured_ms": 11.601104502915405,
+      "sim_evidence": "sim-0007",
+      "meas_evidence": "meas-0011",
+      "backend": "cpu-numpy-blas-float32"
+    },
+    {
+      "phase": "prefill",
+      "workload_id": "8159a13c67fd",
+      "label": "agent-tiny-4x128/mqa/B=8/S=128/fp32",
+      "predicted_tokens_per_s": 722151.8177789167,
+      "measured_tokens_per_s": 40805.7884166594,
+      "error_pct": 1669.7288688682472,
+      "predicted_ms": 1.417984383324633,
+      "measured_ms": 25.09447898773942,
+      "sim_evidence": "sim-0006",
+      "meas_evidence": "meas-0012",
+      "backend": "cpu-numpy-blas-float32"
+    },
+    {
+      "phase": "decode",
+      "workload_id": "8159a13c67fd",
+      "label": "agent-tiny-4x128/mqa/B=8/S=128/fp32",
+      "predicted_tokens_per_s": 29494.698525124546,
+      "measured_tokens_per_s": 4616.647149681279,
+      "error_pct": 538.8770371407046,
+      "predicted_ms": 2.1698814770214625,
+      "measured_ms": 13.862874489859678,
+      "sim_evidence": "sim-0006",
+      "meas_evidence": "meas-0012",
+      "backend": "cpu-numpy-blas-float32"
+    }
+  ],
+  "limitations": [
+    "All measured data comes from the NumPy CPU backend (cpu-numpy-blas-float32); no NVIDIA GPU was used and no NVIDIA performance is claimed.",
+    "Roofline predictions are idealized bounds from the supplied hardware profile plus a measured per-layer dispatch correction.",
+    "The agent is a deterministic bounded policy; it does not call an external LLM.",
+    "Attention scores are materialized in the reference backend, unlike a production FlashAttention kernel; this contributes to prediction error."
+  ],
+  "trace_path": "results/agent/agent_trace.jsonl",
+  "evidence_ids": [
+    "meas-0011",
+    "meas-0012",
+    "sim-0001",
+    "sim-0002",
+    "sim-0003",
+    "sim-0004",
+    "sim-0005",
+    "sim-0006",
+    "sim-0007",
+    "sim-0008",
+    "sim-0009",
+    "sim-0010"
+  ]
+}

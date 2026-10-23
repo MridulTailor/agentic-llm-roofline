@@ -1,0 +1,18 @@
+{
+  "prefill": {
+    "n": 8,
+    "median_abs_error_pct": 91.76759808556032,
+    "min_abs_error_pct": 78.8676134995607,
+    "max_abs_error_pct": 96.65244114893127,
+    "median_measured_over_predicted": 12.218718029627158,
+    "median_achieved_fraction_of_ideal": 0.06057890119645524
+  },
+  "decode": {
+    "n": 8,
+    "median_abs_error_pct": 82.99741252053947,
+    "min_abs_error_pct": 43.671492703864295,
+    "max_abs_error_pct": 89.60571549422296,
+    "median_measured_over_predicted": 5.882112121558986,
+    "median_achieved_fraction_of_ideal": 0.07971417693375707
+  }
+}

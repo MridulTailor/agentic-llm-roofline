@@ -1,0 +1,1530 @@
+{
+  "schema_version": "1.0",
+  "kind": "cpu_validation",
+  "backend": "cpu-numpy-blas-float32",
+  "device": "CPU",
+  "gpu_used": false,
+  "generated_at": "2026-10-23T17:47:11.038500+00:00",
+  "calibration_file": "results/calibration_cpu.json",
+  "hardware": {
+    "name": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+    "peak_flops": 1618808053595.9795,
+    "memory_bandwidth": 70688978105.73117,
+    "memory_capacity": 17179869184.0,
+    "compute_efficiency": 1.0,
+    "bandwidth_efficiency": 1.0,
+    "layer_overhead_s": 4.839575558435172e-05,
+    "source": "measured microbenchmarks on this host (NumPy/Accelerate BLAS); not a nominal GPU ceiling",
+    "notes": "Effective profile for the CPU reference backend only."
+  },
+  "environment": {
+    "timestamp_utc": "2026-10-23T17:47:11.038512+00:00",
+    "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "processor": "Apple M1 Pro",
+    "python_version": "3.13.3",
+    "numpy_version": "2.5.4",
+    "blas": "unknown",
+    "cpu_count": 8,
+    "physical_memory_bytes": 17179869184,
+    "backend": "cpu-numpy-blas-float32",
+    "device": "CPU",
+    "gpu_used": false,
+    "num_threads_env": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    }
+  },
+  "measurements": [
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 1,
+        "seq_len": 64,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "ed949f7f61de",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.0012877500266768038,
+        0.001242917001945898,
+        0.0013460000045597553
+      ],
+      "decode_times_s": [
+        0.0036758749920409173,
+        0.003285582992248237,
+        0.0036840829998254776
+      ],
+      "decode_step_times_s": [
+        [
+          0.00040662498213350773,
+          0.0005357920017559081,
+          0.00039245898369699717,
+          0.00047441700007766485,
+          0.0004067920090164989,
+          0.0005036250222474337,
+          0.0004330420051701367,
+          0.0005020840035285801
+        ],
+        [
+          0.00040020799497142434,
+          0.00037745898589491844,
+          0.0003985840012319386,
+          0.000476707995403558,
+          0.00045449999743141234,
+          0.0004425000224728137,
+          0.0003853340167552233,
+          0.00033137499121949077
+        ],
+        [
+          0.0006571659760084003,
+          0.00045399999362416565,
+          0.0005182909953873605,
+          0.00047066700062714517,
+          0.00045300001511350274,
+          0.00044750000233761966,
+          0.000359416997525841,
+          0.0003025420010089874
+        ]
+      ],
+      "prefill_median_s": 0.0012877500266768038,
+      "decode_median_s": 0.0036758749920409173,
+      "decode_step_median_s": 0.0004450000124052167,
+      "prefill_tokens_per_s": 49699.08652625682,
+      "decode_tokens_per_s": 2176.3525738284816,
+      "end_to_end_tokens_per_s": 14505.527659420197,
+      "kv_bytes_allocated": 147456,
+      "param_bytes_measured": 4461056,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "tiny-4x128",
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 72,
+        "weight_bytes": 4461056
+      },
+      "peak_rss_bytes": 79265792,
+      "measurement_wall_time_s": 0.014542292017722502,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:08.011229+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-c94879d18723"
+    },
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 1,
+        "seq_len": 128,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "e281f0fc6d7c",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.003009167005075142,
+        0.0026301670004613698,
+        0.0024815420038066804
+      ],
+      "decode_times_s": [
+        0.004508874990278855,
+        0.004223166994052008,
+        0.0037663749826606363
+      ],
+      "decode_step_times_s": [
+        [
+          0.0007772920071147382,
+          0.0006147079984657466,
+          0.0006366250163409859,
+          0.0005856249772477895,
+          0.0004827079828828573,
+          0.00045224998029880226,
+          0.0005217090074438602,
+          0.00041366700315847993
+        ],
+        [
+          0.0007369579980149865,
+          0.0005024579877499491,
+          0.0005308749969117343,
+          0.0005085000011604279,
+          0.000542958005098626,
+          0.0005237919976934791,
+          0.0004639590042643249,
+          0.00038516701897606254
+        ],
+        [
+          0.0004547080025076866,
+          0.0004917499900329858,
+          0.0004506660043261945,
+          0.00041962499381043017,
+          0.0005054170032963157,
+          0.0004545419942587614,
+          0.0004744589969050139,
+          0.0004964580002706498
+        ]
+      ],
+      "prefill_median_s": 0.0026301670004613698,
+      "decode_median_s": 0.004223166994052008,
+      "decode_step_median_s": 0.0004994579940102994,
+      "prefill_tokens_per_s": 48666.111306828396,
+      "decode_tokens_per_s": 1894.312967322239,
+      "end_to_end_tokens_per_s": 19844.356062155806,
+      "kv_bytes_allocated": 278528,
+      "param_bytes_measured": 4461056,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "tiny-4x128",
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 136,
+        "weight_bytes": 4461056
+      },
+      "peak_rss_bytes": 88932352,
+      "measurement_wall_time_s": 0.020627249992685392,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:08.059737+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-54ac2231b257"
+    },
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 1,
+        "seq_len": 256,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "c8ad7f3fa367",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.006775207992177457,
+        0.00701191698317416,
+        0.006505291996290907
+      ],
+      "decode_times_s": [
+        0.0045047499879729,
+        0.0043319580145180225,
+        0.004785500001162291
+      ],
+      "decode_step_times_s": [
+        [
+          0.0005819579819217324,
+          0.0006695000047329813,
+          0.0006221249932423234,
+          0.0004418330208864063,
+          0.0005328750121407211,
+          0.0006058330181986094,
+          0.0005721249908674508,
+          0.0004554170009214431
+        ],
+        [
+          0.0006289999873843044,
+          0.0005552920047193766,
+          0.0005924160068389028,
+          0.0005300829943735152,
+          0.00047529200674034655,
+          0.000574083998799324,
+          0.0005099999834783375,
+          0.0004467919934540987
+        ],
+        [
+          0.0006778750102967024,
+          0.0006363749853335321,
+          0.0006452910020016134,
+          0.0007158750086091459,
+          0.0005693749990314245,
+          0.0005154170212335885,
+          0.0005038749950472265,
+          0.0004996249917894602
+        ]
+      ],
+      "prefill_median_s": 0.006775207992177457,
+      "decode_median_s": 0.0045047499879729,
+      "decode_step_median_s": 0.0005707499949494377,
+      "prefill_tokens_per_s": 37784.81786766891,
+      "decode_tokens_per_s": 1775.9032180163083,
+      "end_to_end_tokens_per_s": 23404.3425041625,
+      "kv_bytes_allocated": 540672,
+      "param_bytes_measured": 4461056,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "tiny-4x128",
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 264,
+        "weight_bytes": 4461056
+      },
+      "peak_rss_bytes": 99254272,
+      "measurement_wall_time_s": 0.03392287497990765,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:08.118598+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-23768bc66d2b"
+    },
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 64,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "0a28448a0153",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.009274709009332582,
+        0.009350083011668175,
+        0.008842540992191061
+      ],
+      "decode_times_s": [
+        0.012217790994327515,
+        0.013434459018753842,
+        0.012744874984491616
+      ],
+      "decode_step_times_s": [
+        [
+          0.0016263750148937106,
+          0.0017744580109138042,
+          0.0016774160030763596,
+          0.00137945800088346,
+          0.001416249986505136,
+          0.0014603329764213413,
+          0.0015444580058101565,
+          0.0012843330041505396
+        ],
+        [
+          0.0019514590094331652,
+          0.001771457988070324,
+          0.00210866701672785,
+          0.001836249983171001,
+          0.0015084999904502183,
+          0.0013357920106500387,
+          0.0013371660024859011,
+          0.0015245419926941395
+        ],
+        [
+          0.0017370840068906546,
+          0.0016455419827252626,
+          0.0016119999927468598,
+          0.0017822080117184669,
+          0.0014357500185724348,
+          0.0017137920076493174,
+          0.0015539999876637012,
+          0.001209249981911853
+        ]
+      ],
+      "prefill_median_s": 0.009274709009332582,
+      "decode_median_s": 0.012744874984491616,
+      "decode_step_median_s": 0.0015829999902052805,
+      "prefill_tokens_per_s": 55203.88828208035,
+      "decode_tokens_per_s": 5021.6263461098915,
+      "end_to_end_tokens_per_s": 26158.532339282607,
+      "kv_bytes_allocated": 1179648,
+      "param_bytes_measured": 4461056,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "tiny-4x128",
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 72,
+        "weight_bytes": 4461056
+      },
+      "peak_rss_bytes": 127729664,
+      "measurement_wall_time_s": 0.06594712502555922,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:08.218740+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-ef70197e8e5e"
+    },
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 128,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "fc33393b711a",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.02586370799690485,
+        0.026518708997173235,
+        0.02598462498281151
+      ],
+      "decode_times_s": [
+        0.014291625004261732,
+        0.014754333009477705,
+        0.014576832996681333
+      ],
+      "decode_step_times_s": [
+        [
+          0.0025912080018315464,
+          0.0016287080070469528,
+          0.0017270419921260327,
+          0.0015324999985750765,
+          0.0018534999981056899,
+          0.0016215000068768859,
+          0.001830458000767976,
+          0.001452249998692423
+        ],
+        [
+          0.002438625000650063,
+          0.0016477910103276372,
+          0.0020145829766988754,
+          0.0014115420053713024,
+          0.0020501670078374445,
+          0.0015227909898385406,
+          0.0020927089790347964,
+          0.0015159159956965595
+        ],
+        [
+          0.002213125000707805,
+          0.0021221670031081885,
+          0.0016310829960275441,
+          0.0016801250167191029,
+          0.002302208013134077,
+          0.0014827080012764782,
+          0.001629167003557086,
+          0.001455457997508347
+        ]
+      ],
+      "prefill_median_s": 0.02598462498281151,
+      "decode_median_s": 0.014576832996681333,
+      "decode_step_median_s": 0.00166395801352337,
+      "prefill_tokens_per_s": 39407.91913207763,
+      "decode_tokens_per_s": 4390.528451178024,
+      "end_to_end_tokens_per_s": 26823.49338995836,
+      "kv_bytes_allocated": 2228224,
+      "param_bytes_measured": 4461056,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "tiny-4x128",
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 136,
+        "weight_bytes": 4461056
+      },
+      "peak_rss_bytes": 172851200,
+      "measurement_wall_time_s": 0.12212149999686517,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:08.396882+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-5b0f38dc2e06"
+    },
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 256,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "2f873160f78b",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.08140337499207817,
+        0.08473670898820274,
+        0.08261116698849946
+      ],
+      "decode_times_s": [
+        0.024680083006387576,
+        0.023799459013389423,
+        0.02216749999206513
+      ],
+      "decode_step_times_s": [
+        [
+          0.002860625012544915,
+          0.003239667013986036,
+          0.0028430419915821403,
+          0.003528000001097098,
+          0.003038708004169166,
+          0.0029771669942419976,
+          0.003945792006561533,
+          0.002173874992877245
+        ],
+        [
+          0.003678832988953218,
+          0.003864875005092472,
+          0.0021197090100031346,
+          0.0031812080123927444,
+          0.0028325000021141022,
+          0.00310175001504831,
+          0.002506791992345825,
+          0.0024441670102532953
+        ],
+        [
+          0.004242458002408966,
+          0.0024352920008823276,
+          0.002312041004188359,
+          0.003010290995007381,
+          0.002743874996667728,
+          0.002185874996939674,
+          0.002284707996295765,
+          0.0028883749910164624
+        ]
+      ],
+      "prefill_median_s": 0.08261116698849946,
+      "decode_median_s": 0.023799459013389423,
+      "decode_step_median_s": 0.0028745000017806888,
+      "prefill_tokens_per_s": 24790.837300302366,
+      "decode_tokens_per_s": 2689.136755755415,
+      "end_to_end_tokens_per_s": 19847.641907139143,
+      "kv_bytes_allocated": 4325376,
+      "param_bytes_measured": 4461056,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "tiny-4x128",
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 264,
+        "weight_bytes": 4461056
+      },
+      "peak_rss_bytes": 263077888,
+      "measurement_wall_time_s": 0.3207880840054713,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:08.843298+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-d8707a4b1479"
+    },
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 8,
+        "hidden_size": 256,
+        "n_heads": 8,
+        "n_kv_heads": 2,
+        "intermediate_size": 1024,
+        "vocab_size": 2048,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "small-8x256"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 128,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "41adc3f4161b",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.11319208398344927,
+        0.10416233298019506,
+        0.10785941701033153
+      ],
+      "decode_times_s": [
+        0.04338312498293817,
+        0.04438720899634063,
+        0.04340887497528456
+      ],
+      "decode_step_times_s": [
+        [
+          0.005240707978373393,
+          0.00583974999608472,
+          0.005646000005071983,
+          0.005356458015739918,
+          0.005413707986008376,
+          0.005355833010980859,
+          0.00574687501648441,
+          0.004666708002332598
+        ],
+        [
+          0.005633666994981468,
+          0.006101332983234897,
+          0.0056696669780649245,
+          0.005848125001648441,
+          0.0051680410106200725,
+          0.005666040990035981,
+          0.005253624985925853,
+          0.004933041986078024
+        ],
+        [
+          0.006139250006526709,
+          0.005350666993763298,
+          0.005101124988868833,
+          0.005505125009221956,
+          0.004866375005804002,
+          0.005703000002540648,
+          0.0055484579934272915,
+          0.005085084005258977
+        ]
+      ],
+      "prefill_median_s": 0.10785941701033153,
+      "decode_median_s": 0.04340887497528456,
+      "decode_step_median_s": 0.005459416497615166,
+      "prefill_tokens_per_s": 9493.839558783395,
+      "decode_tokens_per_s": 1474.3528837464523,
+      "end_to_end_tokens_per_s": 7192.51857556147,
+      "kv_bytes_allocated": 4456448,
+      "param_bytes_measured": 32523264,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "small-8x256",
+        "n_layers": 8,
+        "hidden_size": 256,
+        "n_heads": 8,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 136,
+        "weight_bytes": 32523264
+      },
+      "peak_rss_bytes": 315670528,
+      "measurement_wall_time_s": 0.45672250000643544,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:09.548182+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-e3f989ce0ad3"
+    },
+    {
+      "schema_version": "1.0",
+      "kind": "measured_workload",
+      "backend": "cpu-numpy-blas-float32",
+      "device": "CPU",
+      "gpu_used": false,
+      "model": {
+        "n_layers": 8,
+        "hidden_size": 256,
+        "n_heads": 8,
+        "n_kv_heads": 2,
+        "intermediate_size": 1024,
+        "vocab_size": 2048,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "small-8x256"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 256,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "workload_id": "7253ca3f3161",
+      "seed": 0,
+      "repeats": 3,
+      "warmup": 1,
+      "prefill_times_s": [
+        0.27634145799675025,
+        0.272724583017407,
+        0.2737841249909252
+      ],
+      "decode_times_s": [
+        0.07698666700161994,
+        0.07482441700994968,
+        0.07433225002023391
+      ],
+      "decode_step_times_s": [
+        [
+          0.010412708012154326,
+          0.010022625006968156,
+          0.00903662500786595,
+          0.009418041998287663,
+          0.010012625018134713,
+          0.009702499984996393,
+          0.009313332993770018,
+          0.008949458017013967
+        ],
+        [
+          0.00998154198168777,
+          0.00899141700938344,
+          0.009685666009318084,
+          0.009536957979435101,
+          0.00893999999971129,
+          0.00897624998469837,
+          0.009347249986603856,
+          0.00924858299549669
+        ],
+        [
+          0.00960933300666511,
+          0.009560499980580062,
+          0.00876483300817199,
+          0.00864562499918975,
+          0.009642500022891909,
+          0.009485707996645942,
+          0.009493042016401887,
+          0.009013375005451962
+        ]
+      ],
+      "prefill_median_s": 0.2737841249909252,
+      "decode_median_s": 0.07482441700994968,
+      "decode_step_median_s": 0.009451874997466803,
+      "prefill_tokens_per_s": 7480.346057565912,
+      "decode_tokens_per_s": 855.3357654826723,
+      "end_to_end_tokens_per_s": 6058.371340753606,
+      "kv_bytes_allocated": 8650752,
+      "param_bytes_measured": 32523264,
+      "backend_summary": {
+        "backend": "cpu-numpy-blas-float32",
+        "config": "small-8x256",
+        "n_layers": 8,
+        "hidden_size": 256,
+        "n_heads": 8,
+        "n_kv_heads": 2,
+        "head_dim": 32,
+        "max_seq_len": 264,
+        "weight_bytes": 32523264
+      },
+      "peak_rss_bytes": 382812160,
+      "measurement_wall_time_s": 1.0498622089799028,
+      "environment": {
+        "timestamp_utc": "2026-10-23T17:47:11.026282+00:00",
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "Apple M1 Pro",
+        "python_version": "3.13.3",
+        "numpy_version": "2.5.4",
+        "blas": "unknown",
+        "cpu_count": 8,
+        "physical_memory_bytes": 17179869184,
+        "backend": "cpu-numpy-blas-float32",
+        "device": "CPU",
+        "gpu_used": false,
+        "num_threads_env": {
+          "OMP_NUM_THREADS": null,
+          "OPENBLAS_NUM_THREADS": null,
+          "MKL_NUM_THREADS": null
+        }
+      },
+      "measurement_id": "meas-9bd0b8c47b74"
+    }
+  ],
+  "comparisons": [
+    {
+      "workload_id": "ed949f7f61de",
+      "config_id": "49763a87ecd2",
+      "measurement_id": "meas-c94879d18723",
+      "label": "tiny-4x128-b1-s64-g8",
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 1,
+        "seq_len": 64,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 147456,
+      "kv_bytes_measured": 147456,
+      "param_bytes_predicted": 4461056.0,
+      "param_bytes_measured": 4461056,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 0.27213231279685224,
+          "ideal_ms": 0.07854929045944536,
+          "measured_ms": 1.2877500266768038,
+          "error_pct": -78.8676134995607,
+          "speedup_needed": 4.732073208954477,
+          "achieved_fraction_of_ideal": 0.06099731223625085,
+          "predicted_flops_per_s": 467258822346.9169,
+          "measured_flops_per_s": 98742940295.75146,
+          "predicted_tokens_per_s": 235179.71586041027,
+          "measured_tokens_per_s": 49699.08652625682,
+          "bound": "compute",
+          "intensity": 24.2318274953654
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 2.070565513088596,
+          "ideal_ms": 0.5219013343893408,
+          "measured_ms": 3.6758749920409173,
+          "error_pct": -43.671492703864295,
+          "speedup_needed": 1.7753000177027642,
+          "achieved_fraction_of_ideal": 0.14198016404784514,
+          "predicted_flops_per_s": 8744648689.232399,
+          "measured_flops_per_s": 4925730074.935707,
+          "predicted_tokens_per_s": 3863.6787628451602,
+          "measured_tokens_per_s": 2176.3525738284816,
+          "bound": "memory",
+          "intensity": 0.49078494504274456
+        }
+      ]
+    },
+    {
+      "workload_id": "e281f0fc6d7c",
+      "config_id": "21b5b110ac3c",
+      "measurement_id": "meas-54ac2231b257",
+      "label": "tiny-4x128-b1-s128-g8",
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 1,
+        "seq_len": 128,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 278528,
+      "kv_bytes_measured": 278528,
+      "param_bytes_predicted": 4461056.0,
+      "param_bytes_measured": 4461056,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 0.3518151582790341,
+          "ideal_ms": 0.15823213594162722,
+          "measured_ms": 2.6301670004613698,
+          "error_pct": -86.6238471466899,
+          "speedup_needed": 7.475991123655091,
+          "achieved_fraction_of_ideal": 0.06016049015665963,
+          "predicted_flops_per_s": 728073961488.7274,
+          "measured_flops_per_s": 97388285973.88226,
+          "predicted_tokens_per_s": 363827.41615265975,
+          "measured_tokens_per_s": 48666.111306828396,
+          "bound": "compute",
+          "intensity": 42.451251591005516
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 2.085399169311941,
+          "ideal_ms": 0.5367349906126861,
+          "measured_ms": 4.223166994052008,
+          "error_pct": -50.62001639411705,
+          "speedup_needed": 2.0251120534614024,
+          "achieved_fraction_of_ideal": 0.12709300659164896,
+          "predicted_flops_per_s": 8808151585.703627,
+          "measured_flops_per_s": 4349463809.00177,
+          "predicted_tokens_per_s": 3836.196023152502,
+          "measured_tokens_per_s": 1894.312967322239,
+          "bound": "memory",
+          "intensity": 0.4841304113138292
+        }
+      ]
+    },
+    {
+      "workload_id": "c8ad7f3fa367",
+      "config_id": "6848afa7017d",
+      "measurement_id": "meas-23768bc66d2b",
+      "label": "tiny-4x128-b1-s256-g8",
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 1,
+        "seq_len": 256,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 540672,
+      "kv_bytes_measured": 540672,
+      "param_bytes_predicted": 4461056.0,
+      "param_bytes_measured": 4461056,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 0.5150673236070658,
+          "ideal_ms": 0.3214843012696589,
+          "measured_ms": 6.775207992177457,
+          "error_pct": -92.39776366715598,
+          "speedup_needed": 13.154024108402037,
+          "achieved_fraction_of_ideal": 0.047450100667143995,
+          "predicted_flops_per_s": 1010394859366.0326,
+          "measured_flops_per_s": 76812605103.91267,
+          "predicted_tokens_per_s": 497022.40516289696,
+          "measured_tokens_per_s": 37784.81786766891,
+          "bound": "compute",
+          "intensity": 68.41542707141414
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 2.1150664817586318,
+          "ideal_ms": 0.5664023030593768,
+          "measured_ms": 4.5047499879729,
+          "error_pct": -53.04808285908018,
+          "speedup_needed": 2.12983848348223,
+          "achieved_fraction_of_ideal": 0.12573445908687444,
+          "predicted_flops_per_s": 8932485178.57039,
+          "measured_flops_per_s": 4193973039.667314,
+          "predicted_tokens_per_s": 3782.3870166710667,
+          "measured_tokens_per_s": 1775.9032180163083,
+          "bound": "memory",
+          "intensity": 0.4718670076726343
+        }
+      ]
+    },
+    {
+      "workload_id": "0a28448a0153",
+      "config_id": "df096610c982",
+      "measurement_id": "meas-ef70197e8e5e",
+      "label": "tiny-4x128-b8-s64-g8",
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 64,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 1179648,
+      "kv_bytes_measured": 1179648,
+      "param_bytes_predicted": 4461056.0,
+      "param_bytes_measured": 4461056,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 0.8219773460129698,
+          "ideal_ms": 0.6283943236755629,
+          "measured_ms": 9.274709009332582,
+          "error_pct": -91.13743250396466,
+          "speedup_needed": 11.28341195085228,
+          "achieved_fraction_of_ideal": 0.06775353523687347,
+          "predicted_flops_per_s": 1237564267353.8464,
+          "measured_flops_per_s": 109679968501.04976,
+          "predicted_tokens_per_s": 622888.2127755395,
+          "measured_tokens_per_s": 55203.88828208035,
+          "bound": "compute",
+          "intensity": 94.60578067711062
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 2.1898142025715828,
+          "ideal_ms": 0.6411500238723279,
+          "measured_ms": 12.744874984491616,
+          "error_pct": -82.81808016762643,
+          "speedup_needed": 5.820071387574718,
+          "achieved_fraction_of_ideal": 0.050306497682597935,
+          "predicted_flops_per_s": 66147595458.051186,
+          "measured_flops_per_s": 11365426822.645134,
+          "predicted_tokens_per_s": 29226.22381608556,
+          "measured_tokens_per_s": 5021.6263461098915,
+          "bound": "memory",
+          "intensity": 3.1960234975146857
+        }
+      ]
+    },
+    {
+      "workload_id": "fc33393b711a",
+      "config_id": "564e03149db3",
+      "measurement_id": "meas-5b0f38dc2e06",
+      "label": "tiny-4x128-b8-s128-g8",
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 128,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 2228224,
+      "kv_bytes_measured": 2228224,
+      "param_bytes_predicted": 4461056.0,
+      "param_bytes_measured": 4461056,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 1.4594401098704246,
+          "ideal_ms": 1.2658570875330177,
+          "measured_ms": 25.98462498281151,
+          "error_pct": -94.38344747774569,
+          "speedup_needed": 17.804516134011514,
+          "achieved_fraction_of_ideal": 0.0487156188850278,
+          "predicted_flops_per_s": 1404086152039.4524,
+          "measured_flops_per_s": 78861236186.9954,
+          "predicted_tokens_per_s": 701638.9319948971,
+          "measured_tokens_per_s": 39407.91913207763,
+          "bound": "compute",
+          "intensity": 120.22902460272162
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 2.3084834523583453,
+          "ideal_ms": 0.7598192736590904,
+          "measured_ms": 14.576832996681333,
+          "error_pct": -84.16334019272972,
+          "speedup_needed": 6.314462848667877,
+          "achieved_fraction_of_ideal": 0.05212512716802589,
+          "predicted_flops_per_s": 63655685229.139465,
+          "measured_flops_per_s": 10080934317.725618,
+          "predicted_tokens_per_s": 27723.828790982945,
+          "measured_tokens_per_s": 4390.528451178024,
+          "bound": "memory",
+          "intensity": 2.7359109280866316
+        }
+      ]
+    },
+    {
+      "workload_id": "2f873160f78b",
+      "config_id": "4608be950500",
+      "measurement_id": "meas-d8707a4b1479",
+      "label": "tiny-4x128-b8-s256-g8",
+      "model": {
+        "n_layers": 4,
+        "hidden_size": 128,
+        "n_heads": 4,
+        "n_kv_heads": 2,
+        "intermediate_size": 512,
+        "vocab_size": 1024,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "tiny-4x128"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 256,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 4325376,
+      "kv_bytes_measured": 4325376,
+      "param_bytes_predicted": 4461056.0,
+      "param_bytes_measured": 4461056,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 2.765457432494678,
+          "ideal_ms": 2.571874410157271,
+          "measured_ms": 82.61116698849946,
+          "error_pct": -96.65244114893127,
+          "speedup_needed": 29.872514404959457,
+          "achieved_fraction_of_ideal": 0.03113228518506837,
+          "predicted_flops_per_s": 1505490903269.585,
+          "measured_flops_per_s": 50397193984.43548,
+          "predicted_tokens_per_s": 740564.6443642887,
+          "measured_tokens_per_s": 24790.837300302366,
+          "bound": "compute",
+          "intensity": 140.5268124081915
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 2.5458219519318703,
+          "ideal_ms": 0.9971577732326153,
+          "measured_ms": 23.799459013389423,
+          "error_pct": -89.3030259616422,
+          "speedup_needed": 9.348438132261942,
+          "achieved_fraction_of_ideal": 0.04189833780136014,
+          "predicted_flops_per_s": 59368802239.020355,
+          "measured_flops_per_s": 6350665362.391988,
+          "predicted_tokens_per_s": 25139.228590371087,
+          "measured_tokens_per_s": 2689.136755755415,
+          "bound": "memory",
+          "intensity": 2.144226858039398
+        }
+      ]
+    },
+    {
+      "workload_id": "41adc3f4161b",
+      "config_id": "666360093cbc",
+      "measurement_id": "meas-e3f989ce0ad3",
+      "label": "small-8x256-b8-s128-g8",
+      "model": {
+        "n_layers": 8,
+        "hidden_size": 256,
+        "n_heads": 8,
+        "n_kv_heads": 2,
+        "intermediate_size": 1024,
+        "vocab_size": 2048,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "small-8x256"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 128,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 4456448,
+      "kv_bytes_measured": 4456448,
+      "param_bytes_predicted": 32523264.0,
+      "param_bytes_measured": 32523264,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 10.051856168526108,
+          "ideal_ms": 9.664690123851294,
+          "measured_ms": 107.85941701033153,
+          "error_pct": -90.68059475273886,
+          "speedup_needed": 10.730298484379013,
+          "achieved_fraction_of_ideal": 0.08960450920039316,
+          "predicted_flops_per_s": 1556456633053.281,
+          "measured_flops_per_s": 145052501132.1115,
+          "predicted_tokens_per_s": 101871.73222855097,
+          "measured_tokens_per_s": 9493.839558783395,
+          "bound": "compute",
+          "intensity": 210.09876101813782
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 7.302785784656152,
+          "ideal_ms": 4.205457427257642,
+          "measured_ms": 43.40887497528456,
+          "error_pct": -83.1767448734525,
+          "speedup_needed": 5.944152855543256,
+          "achieved_fraction_of_ideal": 0.0968801294585975,
+          "predicted_flops_per_s": 143626137056.32413,
+          "measured_flops_per_s": 24162591465.39018,
+          "predicted_tokens_per_s": 8763.778903999908,
+          "measured_tokens_per_s": 1474.3528837464523,
+          "bound": "memory",
+          "intensity": 3.5282316955551267
+        }
+      ]
+    },
+    {
+      "workload_id": "7253ca3f3161",
+      "config_id": "b7ac5d10a599",
+      "measurement_id": "meas-9bd0b8c47b74",
+      "label": "small-8x256-b8-s256-g8",
+      "model": {
+        "n_layers": 8,
+        "hidden_size": 256,
+        "n_heads": 8,
+        "n_kv_heads": 2,
+        "intermediate_size": 1024,
+        "vocab_size": 2048,
+        "tie_embeddings": true,
+        "gated_mlp": true,
+        "name": "small-8x256"
+      },
+      "runtime": {
+        "batch_size": 8,
+        "seq_len": 256,
+        "gen_len": 8,
+        "weight_dtype": "fp32",
+        "kv_dtype": "fp32",
+        "activation_dtype": "fp32",
+        "causal": true,
+        "attention_impl": "fused",
+        "activation_traffic_factor": 4.0,
+        "logits_last_token_only": true
+      },
+      "hardware": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+      "kv_bytes_peak_predicted": 8650752,
+      "kv_bytes_measured": 8650752,
+      "param_bytes_predicted": 32523264.0,
+      "param_bytes_measured": 32523264,
+      "phases": [
+        {
+          "phase": "prefill",
+          "predicted_ms": 19.79427577965076,
+          "ideal_ms": 19.407109734975947,
+          "measured_ms": 273.7841249909252,
+          "error_pct": -92.77011558639244,
+          "speedup_needed": 13.831479769135342,
+          "achieved_fraction_of_ideal": 0.0708847152318244,
+          "predicted_flops_per_s": 1587144985031.3389,
+          "measured_flops_per_s": 114748747894.13492,
+          "predicted_tokens_per_s": 103464.25516135422,
+          "measured_tokens_per_s": 7480.346057565912,
+          "bound": "compute",
+          "intensity": 269.87855490363387
+        },
+        {
+          "phase": "decode",
+          "predicted_ms": 7.777462783803203,
+          "ideal_ms": 4.680134426404693,
+          "measured_ms": 74.82441700994968,
+          "error_pct": -89.60571549422296,
+          "speedup_needed": 9.620671816748999,
+          "achieved_fraction_of_ideal": 0.06254822440891665,
+          "predicted_flops_per_s": 135938872276.15854,
+          "measured_flops_per_s": 14129873138.328793,
+          "predicted_tokens_per_s": 8228.904692836577,
+          "measured_tokens_per_s": 855.3357654826723,
+          "bound": "memory",
+          "intensity": 3.1957409929429246
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "prefill": {
+      "n": 8,
+      "median_abs_error_pct": 91.76759808556032,
+      "min_abs_error_pct": 78.8676134995607,
+      "max_abs_error_pct": 96.65244114893127,
+      "median_measured_over_predicted": 12.218718029627158,
+      "median_achieved_fraction_of_ideal": 0.06057890119645524
+    },
+    "decode": {
+      "n": 8,
+      "median_abs_error_pct": 82.99741252053947,
+      "min_abs_error_pct": 43.671492703864295,
+      "max_abs_error_pct": 89.60571549422296,
+      "median_measured_over_predicted": 5.882112121558986,
+      "median_achieved_fraction_of_ideal": 0.07971417693375707
+    }
+  },
+  "limitations": [
+    "This validates methodology on CPU, not NVIDIA GPU performance.",
+    "Predictions use measured effective CPU peaks (large matmul/copy), so they remain an idealized lower bound for this naive backend.",
+    "The reference decoder materializes attention scores and pays Python dispatch overhead; real serving kernels are fused and batched."
+  ]
+}

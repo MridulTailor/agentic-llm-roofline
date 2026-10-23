@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "kind": "bottleneck_report",
+  "status": "insufficient_evidence",
+  "halt_reason": "NVIDIA GPU required, but none was detected (nvidia-smi unavailable). No measurement claims were produced.",
+  "backend": {
+    "profile": "cpu-numpy-blas-float32",
+    "device": "CPU",
+    "gpu_used": false,
+    "nvidia_claims": "none"
+  },
+  "hardware_profile": {
+    "name": "Apple M1 Pro [cpu-numpy-blas-float32] calibrated",
+    "peak_flops": 1618808053595.9795,
+    "memory_bandwidth": 70688978105.73117,
+    "memory_capacity": 17179869184.0,
+    "compute_efficiency": 1.0,
+    "bandwidth_efficiency": 1.0,
+    "layer_overhead_s": 4.839575558435172e-05,
+    "source": "measured microbenchmarks on this host (NumPy/Accelerate BLAS); not a nominal GPU ceiling",
+    "notes": "Effective profile for the CPU reference backend only."
+  },
+  "budget": {
+    "max_rounds": 3,
+    "max_tool_calls": 12,
+    "max_profiles": 2,
+    "tool_calls_used": 0,
+    "profile_calls_used": 0,
+    "blocked_attempts": 0
+  },
+  "claims": [],
+  "top_configs": [],
+  "validation": [],
+  "limitations": [
+    "All measured data comes from the NumPy CPU backend (cpu-numpy-blas-float32); no NVIDIA GPU was used and no NVIDIA performance is claimed.",
+    "Roofline predictions are idealized bounds from the supplied hardware profile plus a measured per-layer dispatch correction.",
+    "The agent is a deterministic bounded policy; it does not call an external LLM.",
+    "Attention scores are materialized in the reference backend, unlike a production FlashAttention kernel; this contributes to prediction error.",
+    "No successful profile call: the report makes no measured claims."
+  ],
+  "trace_path": "results/agent_nvidia_required/agent_trace.jsonl",
+  "evidence_ids": []
+}

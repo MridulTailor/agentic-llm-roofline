@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "kind": "cpu_calibration",
+  "backend": "cpu-numpy-blas-float32",
+  "device": "CPU",
+  "gpu_used": false,
+  "environment": {
+    "timestamp_utc": "2026-10-23T17:47:05.152088+00:00",
+    "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "processor": "Apple M1 Pro",
+    "python_version": "3.13.3",
+    "numpy_version": "2.5.4",
+    "blas": "unknown",
+    "cpu_count": 8,
+    "physical_memory_bytes": 17179869184,
+    "backend": "cpu-numpy-blas-float32",
+    "device": "CPU",
+    "gpu_used": false,
+    "num_threads_env": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    }
+  },
+  "matmul": {
+    "size": 2048,
+    "repeats": 5,
+    "times_s": [
+      0.013255333993583918,
+      0.010612665995722637,
+      0.010617417021421716,
+      0.010458833014126867,
+      0.010425416985526681
+    ],
+    "median_s": 0.010612665995722637,
+    "flops": 17179869184.0,
+    "peak_flops": 1618808053595.9795
+  },
+  "copy": {
+    "bytes_copied": 67108864,
+    "bytes_traffic": 134217728,
+    "repeats": 5,
+    "times_s": [
+      0.004977624979801476,
+      0.001683874987065792,
+      0.0016876670124474913,
+      0.0018987079965882003,
+      0.002422416990157217
+    ],
+    "median_s": 0.0018987079965882003,
+    "memory_bandwidth": 70688978105.73117
+  },
+  "layer_overhead_s": 4.839575558435172e-05,
+  "layer_overhead_method": {
+    "repeats": 9,
+    "l1_median_s": 6.762499106116593e-05,
+    "l5_median_s": 0.0002612080133985728,
+    "layer_overhead_s": 4.839575558435172e-05,
+    "method": "slope=(t_L5-t_L1)/(5-1) on a tiny 1-token prefill"
+  },
+  "notes": [
+    "Effective peaks for this NumPy reference implementation, not datasheet peaks.",
+    "Dense matmul throughput is measured at one large square shape; small transformer GEMMs will achieve less.",
+    "Layer overhead is the slope of forward latency vs layer count on a tiny model, used as a per-layer dispatch correction."
+  ]
+}

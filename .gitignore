@@ -1,0 +1,51 @@
+# Bytecode and runtime cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files and credentials
+.env
+.env.*
+!.env.example
+
+# Packaging and distribution
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg
+
+# Testing, linting, and coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# Editor and IDE configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# Notebook checkpoints
+.ipynb_checkpoints/
